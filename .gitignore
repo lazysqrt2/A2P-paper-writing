@@ -1,2 +1,10 @@
 reference_paper/*
 outline/*
+academic-writing-refiner.tar.gz
+.claude/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
