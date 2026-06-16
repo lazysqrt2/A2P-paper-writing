@@ -111,50 +111,32 @@ A2P outperforms direct-prompting and chain-of-thought baselines, and ablations s
 
 \subsection{Repository-Level Code Generation}
 
-Multi-agent frameworks increasingly generate software at the repository level.
-ChatDev~\cite{qian2023chatdev} and MetaGPT~\cite{hong2023metagpt} decompose development into role-based pipelines (analyst $\to$ coder $\to$ tester), while SWE-agent~\cite{yang2024sweagent} and OpenHands~\cite{wang2024openhands} equip agents with tool-augmented interfaces for navigating real codebases.
-Self-collaboration code generation~\cite{dong2023selfcollaboration} demonstrates that role separation substantially improves Pass@1 on HumanEval and MBPP.
-CodeAgent~\cite{zhang2024codeagent} further integrates five programming tools for repo-level synthesis.
-Most recently, AutoP2C~\cite{shi2025autop2c} transforms academic papers into executable repositories through a four-stage pipeline---blueprint extraction, multimodal parsing, hierarchical decomposition, and iterative debugging---achieving full success where single-model baselines solve only 1 of 8 papers.
-AutoP2C is architecturally closest to A2P: both perform ``input $\to$ executable repository'' transformation via hierarchical decomposition.
-However, all these systems optimize a single objective---engineering correctness $E(O)$, validated by test pass rates~\cite{jimenez2023swebench,li2024deveval}---and none asks whether the generated repository is \emph{learnable}.
-A2P differs by jointly optimizing $E(O)$ and pedagogical effectiveness $P(O)$: the same input yields different projects for different learner profiles.
+Recent LLM-based software engineering systems increasingly target repository-level generation.
+ChatDev~\cite{qian2023chatdev} and MetaGPT~\cite{hong2023metagpt} decompose development into role-based multi-agent workflows, while SWE-agent~\cite{yang2024sweagent}, OpenHands~\cite{wang2024openhands}, and CodeAgent~\cite{zhang2024codeagent} equip agents with tools for navigating, editing, and testing real codebases.
+AutoP2C~\cite{shi2025autop2c} is closest to our setting, transforming academic papers into executable repositories.
+Yet these systems optimize for executable completeness: implementation gaps are defects to eliminate.
+A2P targets a different objective, where the repository must run while preserving deliberately chosen gaps as learner-owned work.
 
 \subsection{Educational Content Generation}
 
-LLMs generate educational materials across diverse modalities.
-Content-generation systems---PPTAgent~\cite{zheng2025pptagent}, DeepPresenter~\cite{zheng2026deeppresenter}, STORM~\cite{shao2024storm}, and PustakAI~\cite{sharma2025pustakai}---produce static artifacts such as slides, articles, and textbooks.
-LessonPlanner~\cite{wang2024lessonplanner} grounds lesson plan generation in Gagn\'{e}'s nine events of instruction.
-Tutoring systems take a complementary approach: SimClass~\cite{zhang2024simclass} simulates classroom interactions with multi-agent role-play, MedTutor~\cite{jang2026medtutor} provides case-based medical education, and EDF~\cite{cohn2026edf} implements theory-driven adaptive scaffolding.
-Co-design studies with K-12 educators identify PBL project design as the primary challenge where LLM assistance is most requested~\cite{lee2025codesigning}.
-However, all existing systems produce a single modality---slides, lesson plans, dialogue turns, or articles---rather than a complete, runnable project repository.
-The gap between generating educational \emph{text} and generating an executable \emph{learning artifact} remains open; A2P targets precisely this gap.
+LLMs have also been used to generate educational materials and learning interactions.
+Systems such as PPTAgent~\cite{zheng2025pptagent}, DeepPresenter~\cite{zheng2026deeppresenter}, STORM~\cite{shao2024storm}, and PustakAI~\cite{sharma2025pustakai} produce instructional artifacts such as slides, articles, and textbooks, while LessonPlanner~\cite{wang2024lessonplanner} supports pedagogy-driven lesson planning.
+Tutoring systems take a complementary approach: SimClass~\cite{zhang2024simclass} simulates classroom interaction, MedTutor~\cite{jang2026medtutor} supports case-based medical education, and EDF~\cite{cohn2026edf} implements theory-driven adaptive scaffolding.
+Co-design work with K-12 educators further shows that project design is a major pain point where LLM support is desired~\cite{lee2025codesigning}.
+However, these systems primarily generate instructional content or interactions around learning.
+A2P instead generates the executable setting in which learning occurs: source concepts are instantiated as files, tests, tasks, scaffolds, and learner-owned implementation gaps.
 
 \subsection{Scaffolding and Learner Modeling}
 
-A2P's learner-aware calibration draws on two theoretical traditions.
-Vygotsky's zone of proximal development~\cite{vygotsky1978} and Wood et al.'s scaffolding framework~\cite{wood1976scaffolding} establish that effective instruction targets the region between independent capability and assisted capability.
-Sweller's cognitive load theory~\cite{sweller1988cognitive} provides the complementary lower bound: when working memory is overloaded, learning fails regardless of task design.
-Puntambekar and H\"{u}bscher~\cite{puntambekar2005scaffolding} extend scaffolding to technology-mediated environments, identifying three critical features---ongoing diagnosis, calibrated support, and fading---that A2P operationalizes through its learner profile mechanism.
-The tension between minimal guidance and structured support is well-documented: Kirschner et al.~\cite{kirschner2006minimal} argue that pure discovery learning imposes excessive cognitive load on novices, while Hmelo-Silver et al.~\cite{hmelosilver2007scaffolding} respond that effective PBL is heavily scaffolded inquiry, not minimal guidance.
-A2P resolves this tension by calibrating scaffold density per learner profile, following Krajcik and Shin's~\cite{krajcik2014pbl} characterization of PBL as requiring both authentic artifacts and structured support.
+Scaffolding theory explains why incompletion in a learning repository must be controlled rather than arbitrary.
+Vygotsky's zone of proximal development~\cite{vygotsky1978} and Wood et al.'s scaffolding framework~\cite{wood1976scaffolding} establish that effective instruction targets work learners cannot yet complete independently but can complete with support.
+Cognitive load theory~\cite{sweller1988cognitive} provides the complementary constraint: excessive unsupported complexity prevents learning, while productive failure~\cite{kapur2008productive} and desirable difficulties~\cite{bjork2011desirable} show that appropriately challenging struggle can improve learning.
+This balance is central to PBL, where authentic artifacts require structured support rather than minimal guidance~\cite{kirschner2006minimal,hmelosilver2007scaffolding,krajcik2014pbl}.
+A2P operationalizes this balance as a repository-generation problem: deciding which components should be complete, scaffolded, or left as learner-owned implementation gaps.
 
 On the computational side, learner modeling has evolved from Bayesian Knowledge Tracing~\cite{corbett1995knowledge} through deep knowledge tracing~\cite{piech2015deep} to LLM-augmented approaches such as SINKT~\cite{gao2024sinkt}, which uses LLM-encoded concept semantics for inductive knowledge tracing.
 These systems model learners for \emph{runtime} adaptation---selecting or sequencing existing content.
 A2P instead uses a one-shot learner profile to condition \emph{generation}, deciding what to scaffold, what to leave as productive struggle~\cite{kapur2008productive}, and what to omit as noise \emph{before} the project exists.
-
-\subsection{Hierarchical Planning and Human-in-the-Loop Generation}
-
-A2P's five-stage pipeline draws on hierarchical task decomposition.
-Plan-and-Solve prompting~\cite{wang2023planandsolve} shows that planning before execution improves zero-shot reasoning; Least-to-Most prompting~\cite{zhou2023leasttomost} demonstrates that sequential sub-problem solving enables compositional generalization; and Hi-CoT~\cite{zhang2026hicot} alternates between instruction planning and step execution, reducing reasoning trace length while improving accuracy.
-In multi-agent settings, self-collaboration pipelines~\cite{dong2023selfcollaboration} confirm that role-specialized stages outperform monolithic generation.
-A2P applies this principle concretely: its first two stages (topic analysis and project design) correspond to the planning phase, while the latter three (scaffolding, code generation, and validation) execute the plan with stage-specific constraints.
-
-The human-in-the-loop dimension is equally critical.
-Amershi et al.'s~\cite{amershi2019guidelines} 18 guidelines for human-AI interaction organize intervention points along a temporal axis.
-Empirical analysis of writing collaboration reveals that a small set of prototypical behaviors---revising intents and injecting content---dominate human-AI interaction~\cite{mysore2025paths}, and interaction-required interfaces promote ownership and cognitive engagement over passive acceptance~\cite{lee2025interaction}.
-A2P's five intervention points constitute deep interaction: the instructor reviews and revises at each stage boundary rather than accepting a single end-to-end output.
-This design reflects the finding that HITL workflows are necessary under quality-assurance constraints~\cite{wang2025summit} similar to those in educational content generation.
 
 \bibliography{custom}
 
