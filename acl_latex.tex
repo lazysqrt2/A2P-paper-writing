@@ -39,46 +39,72 @@ Experiments on a cross-disciplinary benchmark show that A2P consistently outperf
 
 \section{Introduction}
 
-Large language models (LLMs) have rapidly advanced two adjacent areas: repository-level software generation~\cite{qian2023chatdev,hong2023metagpt,yang2024sweagent,wang2024openhands} and automated pedagogical content creation, including curriculum-aligned slides~\cite{zheng2025pptagent,xu2025pregenie}, interactive textbooks~\cite{sharma2025pustakai}, and tutoring dialogue~\cite{jang2026medtutor,zhang2024simclass,deriyeva2026script}.
-Yet a related problem has not been formally studied as a unified task: generating a \emph{complete, runnable training project} that is both executable and tailored to a specific learner's level.
-This problem is central to Project-Based Learning (PBL)~\cite{kilpatrick1918,thomas2000}, a pedagogy in which learners acquire competencies by constructing authentic artifacts.
-Producing such projects at scale is costly~\cite{condliffe2017pbl}, and no prior work has addressed their automatic generation.
+LLMs have made explanations cheap.
+Given a paper, codebase, tutorial, or dataset, LLMs can easily produce summaries, slides, quizzes, and step-by-step guides.
+Yet for many technical skills, the limiting factor is no longer access to explanations alone.
+A learner does not master retrieval-augmented generation by reading about chunking strategies, embedding models, or hallucination mitigation; mastery requires making these design decisions inside a working system, observing failures, and repairing them.
+What remains costly is therefore not the delivery of conceptual content, but the construction of practice environments in which learners must act on that content.
 
 \noindent
-Consider a student learning back-end web development (Figure~\ref{fig:teaser}).
-An appropriate training project might be a 200-line FastAPI library-catalog service with JWT authentication and a single database table---small enough to finish in a weekend, complete enough to expose real engineering concerns.
-The same topic would fail a different learner in either direction.
-For a beginner, JWT already sits outside the zone of proximal development~\cite{vygotsky1978,wood1976scaffolding}, and the project becomes overwhelming.
-For an advanced learner, writing three CRUD endpoints is busywork that invites \emph{cognitive offloading}~\cite{kelly2019cognitive,armitage2025offloading} rather than \emph{productive struggle}~\cite{kapur2008productive,bjork2011desirable}, diminishing learning gain.
-The pedagogical value of a project, therefore, is not a property of the project itself but of the project--learner pair.
+We focus on a specific kind of practice environment: a runnable training repository tailored to a specified learner.
+Unlike summaries, lesson plans, quizzes, or complete implementations, these repositories must satisfy two competing requirements.
+They must run, so that learners receive authentic feedback from code, tests, data, and system behavior.
+At the same time, they must leave the right parts unfinished, because these gaps are where learners perform the target cognitive and engineering work.
+This is the artifact-construction setting of Project-Based Learning (PBL), where learning is organized around building authentic artifacts rather than only consuming instructional content~\cite{kilpatrick1918,thomas2000}.
 
 \noindent
-Existing work splits along a fault line that leaves this pair unaddressed.
-On the engineering side, agentic code-generation frameworks such as ChatDev~\cite{qian2023chatdev}, MetaGPT~\cite{hong2023metagpt}, SWE-agent~\cite{yang2024sweagent}, and AutoCodeRover~\cite{zhang2024autocoderover} pursue a single objective: a runnable artifact whose correctness is validated by tests or by SWE-bench-style resolution rates~\cite{jimenez2023swebench,li2024deveval}.
-None of these systems asks whether the generated repository is \emph{learnable}.
-On the educational side, systems such as PPTAgent~\cite{zheng2025pptagent}, STORM~\cite{shao2024storm}, SimClass~\cite{zhang2024simclass}, EDF~\cite{cohn2026edf}, and curriculum-aligned RAG assistants~\cite{sharma2025pustakai,katharakis2025slm} calibrate their output against explicit pedagogical theory, but deliver slide decks, question sets, or dialogue turns---never a runnable repository.
-This bifurcation is structural, not accidental.
-Engineering correctness $E(O)$ rewards \emph{covering} all requirements, and is validated by execution~\cite{jimenez2023swebench}; pedagogical effectiveness $P(O)$ rewards \emph{not} covering the portions a specific learner should struggle through, and is validated against a learner model~\cite{cohn2026edf,liu2023misconception}.
-Methods optimized for either objective tend to violate the other, and the two communities have developed disjoint evaluation machinery.
+This makes PBL repository construction fundamentally different from ordinary software generation.
+In software generation, an incomplete implementation is a defect to be repaired.
+In a training repository, incompletion can be the teaching interface.
+If the repository is too complete, the learner merely runs or lightly edits someone else's solution, inviting cognitive offloading~\cite{kelly2019cognitive,armitage2025offloading}.
+If it is too incomplete, the learner faces overload rather than productive struggle~\cite{kapur2008productive,bjork2011desirable}.
+If the wrong components are left unfinished, the task becomes prerequisite work, mechanical busywork, or unguided debugging.
+The central problem is therefore not generation alone, but \emph{controlled incompletion}: determining what to implement, what to scaffold, what to leave to the learner, and how this allocation should vary with the learner profile.
 
 \noindent
-To bridge this gap, we propose \textbf{Anything2PBL (A2P)}, a hierarchical constrained generation framework that transforms arbitrary inputs into pedagogically calibrated project repositories.
-A2P decomposes generation into a five-stage human-in-the-loop pipeline.
-Engineering constraints (dependency resolution, type checks, unit tests) are enforced stage-by-stage, keeping $E(O)$ high throughout decoding.
-Pedagogical calibration is concentrated in a dedicated \textbf{scaffolding stage} seeded by an instructor-supplied learner profile, which decides per sub-task whether to expand it as a guided walkthrough, reduce it to a hint, or leave it as productive struggle.
-This operationalizes the learner-dependent boundary between productive challenge and busywork that the preceding example illustrates.
+Controlled incompletion requires knowing what the project is supposed to teach.
+A repository teaches RAG, for example, not because it contains RAG code, but because it makes the learner perform purposeful actions: choosing chunk boundaries, diagnosing retrieval failures, evaluating answer quality, and mitigating hallucinations.
+The educational value of the repository is therefore not a property of the code alone.
+It lies in a correspondence between the source material's concepts and dependencies, and the concrete actions the learner is required to perform.
 
 \noindent
-We evaluate A2P on a cross-disciplinary benchmark spanning multiple domains and learner profiles.
-A2P consistently outperforms direct-prompting and chain-of-thought baselines on both engineering metrics (test pass rate) and pedagogical metrics (instructor rating).
-An ablation isolates the scaffolding stage as the dominant contributor, and instructor-written learner profiles yield disproportionately larger gains than template-based profiles---suggesting that calibration, not raw generation capacity, is the central lever for PBL-material generation.
+This correspondence cannot be recovered reliably from the final repository alone.
+A generated project may run successfully while still assigning learners the wrong work, obscuring the intended learning path, or leaving gaps for reasons unrelated to pedagogy.
+Direct prompting tends to collapse these design decisions into a single output artifact, making the pedagogical rationale difficult to inspect or revise.
+Thus, PBL repository construction requires not only executable generation, but also an explicit representation of how source knowledge is transformed into learner-owned work.
+
+\noindent
+Existing LLM systems approach this problem from two neighboring directions.
+Repository-level code generation systems optimize for executable completeness, using tests or benchmark task completion as the main signal of success~\cite{qian2023chatdev,hong2023metagpt,yang2024sweagent,wang2024openhands,jimenez2023swebench,li2024deveval}.
+Educational content generation systems produce slides, lesson plans, textbooks, quizzes, or tutoring dialogue~\cite{zheng2025pptagent,sharma2025pustakai,zhang2024simclass,cohn2026edf}.
+The former tends to eliminate implementation gaps; the latter rarely produces an executable environment in which learning objectives become learner-owned actions.
+Neither line of work explicitly represents how source knowledge should become learner action, scaffolding, and validation in an executable project.
+
+\noindent
+We propose \textbf{Anything2PBL (A2P)}, a framework that turns arbitrary source artifacts into runnable, learner-calibrated PBL repositories.
+A2P's central object is not the repository alone, but a \textbf{Pedagogical Repository Contract}: an inspectable intermediate representation that maps source concepts to learning objectives, learner-owned tasks, scaffolds, and validation checks.
+The contract records what the learner should learn, where that learning is exercised in the repository, which parts are completed by the system or the learner, and how success is validated.
+The repository is then generated as an implementation of the contract rather than produced as a single unconstrained generation.
+
+\noindent
+A2P constructs this contract through a five-stage human-in-the-loop pipeline: source analysis, project design, scaffolding calibration, repository construction, and validation.
+The early stages identify what should be learned and how it can be embodied in a project; scaffolding calibration then decides which parts should be implemented by the system and which should remain learner-owned.
+Repository construction and validation generate the runnable artifact while checking that these pedagogical decisions are preserved.
+This turns incompletion from an accidental property of generated code into a design object that can be inspected, revised, and evaluated.
+
+\noindent
+We evaluate A2P on a cross-disciplinary benchmark spanning multiple source types and learner profiles.
+Because the goal is not merely to generate runnable repositories, our evaluation considers both engineering validity and pedagogical validity.
+We measure whether generated projects remain faithful to the source, embody concepts as learner actions, calibrate incompletion to the learner profile, avoid scaffold leakage, and preserve traceability from source concepts to validation checks.
+A2P outperforms direct-prompting and chain-of-thought baselines, and ablations show that learner-aware scaffolding calibration is the dominant contributor to pedagogical quality.
 
 \smallskip
 \noindent In summary, our contributions are:
 \begin{itemize}
-    \item We formalize pedagogically calibrated project generation as a \textbf{dual-constrained problem} $E(O) \times P(O)$, and release a cross-disciplinary benchmark pairing topics with learner profiles.
-    \item We implement \textbf{hierarchical constrained generation with learner-aware scaffolding calibration}, a five-stage human-in-the-loop pipeline that interleaves executable engineering constraints with an instructor-seeded scaffolding stage.
-    \item We empirically show that \textbf{instructor-calibrated scaffolding yields disproportionately large gains}, establishing calibration as the dominant lever and a central research question for future PBL-generation work.
+    \item We formulate PBL repository construction as \textbf{pedagogical compilation}: transforming source artifacts into executable projects in which learning objectives become learner-owned actions.
+    \item We introduce the \textbf{Pedagogical Repository Contract}, an explicit intermediate representation linking source concepts, learner tasks, scaffolding decisions, and validation checks.
+    \item We implement \textbf{Anything2PBL}, a five-stage human-in-the-loop pipeline for generating runnable, learner-calibrated, and deliberately incomplete training repositories.
+    \item We empirically show that A2P improves both engineering validity and pedagogical validity over direct generation baselines, with learner-aware scaffolding calibration contributing the largest gains.
 \end{itemize}
 
 \section{Related Work}
