@@ -16,15 +16,3 @@ Tutoring systems take a complementary approach: SimClass~\cite{zhang2024simclass
 Co-design work with K-12 educators further shows that project design is a major pain point where LLM support is desired~\cite{lee2025codesigning}.
 However, these systems primarily generate instructional content or interactions around learning.
 A2P instead generates the executable setting in which learning occurs: source concepts are instantiated as files, tests, tasks, scaffolds, and learner-owned implementation gaps.
-
-\subsection{Scaffolding and Learner Modeling}
-
-Scaffolding theory explains why incompletion in a learning repository must be controlled rather than arbitrary.
-Vygotsky's zone of proximal development~\cite{vygotsky1978} and Wood et al.'s scaffolding framework~\cite{wood1976scaffolding} establish that effective instruction targets work learners cannot yet complete independently but can complete with support.
-Cognitive load theory~\cite{sweller1988cognitive} provides the complementary constraint: excessive unsupported complexity prevents learning, while productive failure~\cite{kapur2008productive} and desirable difficulties~\cite{bjork2011desirable} show that appropriately challenging struggle can improve learning.
-This balance is central to PBL, where authentic artifacts require structured support rather than minimal guidance~\cite{kirschner2006minimal,hmelosilver2007scaffolding,krajcik2014pbl}.
-A2P operationalizes this balance as a repository-generation problem: deciding which components should be complete, scaffolded, or left as learner-owned implementation gaps.
-
-On the computational side, learner modeling has evolved from Bayesian Knowledge Tracing~\cite{corbett1995knowledge} through deep knowledge tracing~\cite{piech2015deep} to LLM-augmented approaches such as SINKT~\cite{gao2024sinkt}, which uses LLM-encoded concept semantics for inductive knowledge tracing.
-These systems model learners for \emph{runtime} adaptation---selecting or sequencing existing content.
-A2P instead uses a one-shot learner profile to condition \emph{generation}, deciding what to scaffold, what to leave as productive struggle~\cite{kapur2008productive}, and what to omit as noise \emph{before} the project exists.

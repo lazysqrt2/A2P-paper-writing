@@ -1,50 +1,56 @@
 \section{Introduction}
 
-Curating assignments is a crucial step in education, especially when the aim of learning is to produce practical skills.
-A well orchestrated assignment can help learner to ... \nn{Add citations showing learn by do is important and helpful.}
-However, crafting such assignments is a non-trivial task and takes substantial times of teachers as it requires the joint design of aaa, bbb, ccc.
-Thus it is necessary to explore the potential of automating the designing process of learning assignments.
+Curating learning assignments is a crucial step in practice-oriented education, especially when the goal is to help learners develop practical skills.
+A well-orchestrated assignment turns abstract learning objectives into concrete learner actions: learners practice by working through meaningful project tasks, making design decisions, and producing artifacts that can be inspected and evaluated~\cite{blumenfeld1991motivating,barron1998doing}.
+However, crafting such assignments is non-trivial and time-consuming for teachers, because it requires the joint design of tasks, supporting materials, scaffolding, and evaluation criteria.
+This motivates the need to explore automated methods for designing learning assignments while preserving meaningful learner work.
 
+As shown in Figure~\ref{fig:demo}, designing such assignments requires preparing resources for both learners and instructors.
+For learners, project materials define the concrete working context, including starter files, task instructions, requirements, resources, and expected deliverables.
+For instructors, instructional procedures specify how the assignment should be taught, supported, and evaluated, including learning objectives, scaffolding strategies, checkpoints, assessment criteria, and feedback mechanisms.
+These two sides must be designed jointly: materials for learners determine what work learners can perform, while guidance for instructors determines what that work is meant to teach and how progress should be assessed.
 
-%High-quality training projects are essential for practical technical education.
-% Many skills are learned not from instruction alone, but through sustained work on realistic tasks.
-% However, high-quality training projects remain difficult to create.
-% A useful project must contain enough structure for learners to make progress, while leaving enough work for them to practice the target skills.
-% This balance depends on the learner: the same task can be productive for one learner but too easy, tedious, or overwhelming for another.
-% As a result, high-quality personalized training projects remain scarce and costly to produce.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/demo.pdf}
+    \caption{Practice-assignment design requires coordinating learner-facing project materials with instructor-facing guidance so that the resulting assignment is executable while preserving meaningful learner-owned work.}
+    \label{fig:demo}
+\end{figure}
 
-As shown in Figure~\ref{fig:demo}, designing a learning assignment involves the crafting of multiple materials:
-1. \textbf{Project Materials.} Students should be given with a set of project materials such as start up files, instructions, requirements. These materials provides initial information
-2. \textbf{Instructional Procedure.}
-
-
-Producing such projects is a multi-facit challenge:
-It has to be a carefully designed training repository, while remaining incomplete in the places where the learner should practice.
-Those places depend on the learner's background, goals, and expected level of support.
-Creating such a project is both an engineering and a pedagogical problem: the system must decide what to build, what to scaffold, and what to leave for the learner.
+The difficulty is not only that these materials are numerous, but that they must remain coherent with one another.
+The materials for learners must provide enough structure for students to make progress, while leaving open the parts of the task where learning should occur.
+At the same time, the guidance for instructors must make clear why those parts are left open, how learners should be supported, and how their work should be assessed.
+This makes assignment design both an engineering and a pedagogical problem: the system must decide what to build, what to scaffold, and what to leave for the learner.
 These decisions interact: changing the project goal can change the required scaffolding, and changing the scaffolding can change what counts as meaningful learner work.
 
 
-Existing LLM systems cover important pieces of this process, but not the full problem.
-Repository-level agents generate and modify runnable code-bases~\cite{qian2023chatdev,hong2023metagpt,yang2024sweagent,wang2024openhands,zhang2024codeagent,shi2025autop2c}. But these systems are built to complete software, whereas a training project must preserve parts of that work for the learner to do.
-On the other hand, educational systems generate slides, QA, textbooks, and classroom interactions~\cite{zheng2025pptagent,zheng2026deeppresenter,shao2024storm,sharma2025pustakai,wang2024lessonplanner,zhang2024simclass}; these produce instructional content rather than an executable environment in which learners build and practice.
-Tutoring, scaffolding, and learner-modeling systems adapt support during learning~\cite{jang2026medtutor,cohn2026edf,deriyeva2026script,gao2024sinkt}, but typically assume that the task or material already exists.
-Together, these gaps leave open a problem: how to turn a learner's goals into a concrete project design, and then realize that design as a runnable repository with appropriate learner work.
+Existing LLM systems address parts of this engineering-pedagogical problem, but not the full assignment-design process.
+Repository-level agents can generate and modify runnable code-bases~\cite{qian2023chatdev,hong2023metagpt,yang2024sweagent,wang2024openhands,zhang2024codeagent,shi2025autop2c}.
+However, they are built to complete software artifacts, whereas a learning assignment must preserve selected work for the learner to perform.
+In contrast, educational AI systems generate instructional content or support learning interactions, such as slides, question answering, textbooks, tutoring, scaffolding, and classroom simulation~\cite{zheng2025pptagent,zheng2026deeppresenter,shao2024storm,sharma2025pustakai,wang2024lessonplanner,zhang2024simclass,jang2026medtutor,cohn2026edf,deriyeva2026script,gao2024sinkt}.
+These systems support instruction around a task, but typically do not generate a complete, aligned practice assignment.
+Together, these gaps leave open a problem: how to turn a learner's goals into a complete, aligned practice assignment with meaningful learner work.
 
 
-We propose \model, a framework that transforms learner intent into runnable training repositories tailored to individual learners.
-\model interactively refines the learner's goals into a concrete project blueprint.
-The blueprint specifies what the project will ask the learner to build, which skills it should exercise, what support should be provided, and what work should remain for the learner.
-The system then expands this blueprint into a runnable training repository, including tasks, scaffolds, files, tests, and validation behavior.
-To keep the blueprint aligned with the learner, \model asks clarifying questions when key design choices are uncertain, rather than hiding those choices inside the generated repository.
+We propose \model, a framework for generating complete, aligned practice assignments from learner intent.
+In this work, we realize these assignments as runnable training repositories tailored to individual learners.
+\model first turns the learner's goals into an assignment plan that specifies the project materials, instructional procedures, target skills, scaffolding, and learner-owned work.
+It then generates the corresponding repository components, including task instructions, starter files, scaffolds, tests, and validation behavior.
+By coordinating materials for learners with guidance for instructors, \model aims to preserve meaningful learner work while scaling the creation of practice-oriented assignments.
 
 
 
 \smallskip
 \noindent In summary, our contributions are:
-\begin{itemize}
-    \item We formulate PBL repository construction as \textbf{pedagogical compilation}: transforming source artifacts into executable projects in which learning objectives become learner-owned actions.
-    \item We introduce the \textbf{Pedagogical Repository Contract}, an explicit intermediate representation linking source concepts, learner tasks, scaffolding decisions, and validation checks.
-    \item We implement \textbf{Anything2PBL}, a five-stage human-in-the-loop pipeline for generating runnable, learner-calibrated, and deliberately incomplete training repositories.
-    \item We empirically show that A2P improves both engineering validity and pedagogical validity over direct generation baselines, with learner-aware scaffolding calibration contributing the largest gains.
-\end{itemize}
+\begin{list}{$\bullet$}{%
+    \setlength{\leftmargin}{1em}
+    \setlength{\labelwidth}{0.5em}
+    \setlength{\labelsep}{0.3em}
+    \setlength{\itemsep}{0.2em}
+    \setlength{\topsep}{0.2em}
+    \setlength{\parsep}{0pt}
+}
+    \item We formulate practice-assignment generation as the task of transforming learner intent into complete, aligned assignments that coordinate project materials for learners, instructional guidance for instructors, and meaningful learner work.
+    \item We introduce \model, a human-in-the-loop generation framework that coordinates project materials, instructional guidance, learner-aware scaffolding, repository construction, and validation to produce runnable training repositories with appropriate learner-owned work.
+    \item We evaluate \model against direct generation baselines using both engineering and pedagogical criteria, showing improvements in repository validity, assignment alignment, and learner-work preservation.
+\end{list}
