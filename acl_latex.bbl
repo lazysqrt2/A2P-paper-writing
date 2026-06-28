@@ -1,0 +1,332 @@
+\begin{thebibliography}{47}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{Amershi et~al.(2019)Amershi, Weld, Vorvoreanu, Fourney, Nushi,
+  Collisson, Suh, Iqbal, Bennett, Inkpen, Teevan, Kikin-Gil, and
+  Horvitz}]{amershi2019guidelines}
+Saleema Amershi, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira Nushi,
+  Penny Collisson, Jina Suh, Shamsi Iqbal, Paul~N. Bennett, Kori Inkpen, Jaime
+  Teevan, Ruth Kikin-Gil, and Eric Horvitz. 2019.
+\newblock Guidelines for human-{AI} interaction.
+\newblock In \emph{Proceedings of the 2019 CHI Conference on Human Factors in
+  Computing Systems}.
+
+\bibitem[{Armitage and Redshaw(2025)}]{armitage2025offloading}
+Kelsey~L. Armitage and Jonathan Redshaw. 2025.
+\newblock Cognitive offloading and the use of {LLMs} in learning.
+\newblock \emph{Memory \& Cognition}.
+
+\bibitem[{Bjork and Bjork(2011)}]{bjork2011desirable}
+Elizabeth~L. Bjork and Robert~A. Bjork. 2011.
+\newblock Making things hard on yourself, but in a good way: Creating desirable
+  difficulties to enhance learning.
+\newblock In \emph{Psychology and the Real World: Essays Illustrating
+  Fundamental Contributions to Society}, pages 56--64. Worth Publishers.
+
+\bibitem[{Cohn et~al.(2026)Cohn, Guo, Rayala, Wang, Mohammed, Timalsina, Jain,
+  Eeds, Deweese, Popp, Stanton, Walker, Ma, and Biswas}]{cohn2026edf}
+Clayton Cohn, Siyuan Guo, Surya Rayala, Hanchen~David Wang, Naveeduddin
+  Mohammed, Umesh Timalsina, Shruti Jain, Angela Eeds, Menton Deweese, Pamela
+  J.~Osborn Popp, Rebekah Stanton, Shakeera Walker, Meiyi Ma, and Gautam
+  Biswas. 2026.
+\newblock Evidence-decision-feedback: Theory-driven adaptive scaffolding for
+  {LLM} agents.
+\newblock \emph{arXiv preprint arXiv:2602.01415}.
+
+\bibitem[{Condliffe(2017)}]{condliffe2017pbl}
+Barbara Condliffe. 2017.
+\newblock Project-based learning: A literature review.
+\newblock \emph{MDRC Working Paper}.
+
+\bibitem[{Corbett and Anderson(1995)}]{corbett1995knowledge}
+Albert~T. Corbett and John~R. Anderson. 1995.
+\newblock Knowledge tracing: Modeling the acquisition of procedural knowledge.
+\newblock \emph{User Modeling and User-Adapted Interaction}, 4(4):253--278.
+
+\bibitem[{Deriyeva et~al.(2026)Deriyeva, Dannath, and
+  Paassen}]{deriyeva2026script}
+Alina Deriyeva, Jesper Dannath, and Benjamin Paassen. 2026.
+\newblock {SCRIPT}: Implementing an intelligent tutoring system for programming
+  in a german university context.
+\newblock \emph{arXiv preprint arXiv:2604.16117}.
+
+\bibitem[{Dong et~al.(2023)Dong, Jiang, Jin, and
+  Li}]{dong2023selfcollaboration}
+Yihong Dong, Xue Jiang, Zhi Jin, and Ge~Li. 2023.
+\newblock Self-collaboration code generation via {ChatGPT}.
+\newblock \emph{arXiv preprint arXiv:2304.07590}.
+
+\bibitem[{Gao et~al.(2024)Gao, Hong, Zhang, Gao, and Zhang}]{gao2024sinkt}
+Lingyue Gao, Jianwen Hong, Yonghui Zhang, Mengze Gao, and Li~Zhang. 2024.
+\newblock {SINKT}: A structure-aware inductive knowledge tracing model with
+  large language model.
+\newblock \emph{arXiv preprint arXiv:2407.01245}.
+
+\bibitem[{Hmelo-Silver et~al.(2007)Hmelo-Silver, Duncan, and
+  Chinn}]{hmelosilver2007scaffolding}
+Cindy~E. Hmelo-Silver, Ravit~Golan Duncan, and Clark~A. Chinn. 2007.
+\newblock Scaffolding and achievement in problem-based and inquiry learning: A
+  response to {Kirschner}, {Sweller}, and {Clark} (2006).
+\newblock \emph{Educational Psychologist}, 42(2):99--107.
+
+\bibitem[{Hong et~al.(2023)Hong, Zhuge, Chen, Zheng, Cheng, Zhang, Wang, Wang,
+  Yau, Lin et~al.}]{hong2023metagpt}
+Sirui Hong, Mingchen Zhuge, Jonathan Chen, Xiawu Zheng, Yuheng Cheng, Ceyao
+  Zhang, Jinlin Wang, Zili Wang, Steven Ka~Shing Yau, Zijuan Lin, and 1 others.
+  2023.
+\newblock {MetaGPT}: Meta programming for a multi-agent collaborative
+  framework.
+\newblock \emph{arXiv preprint arXiv:2308.00352}.
+
+\bibitem[{Jang et~al.(2026)Jang, Shangguan, Tegtmeyer, Gupta, Czerminski,
+  Chheang, and Cohan}]{jang2026medtutor}
+Dongsuk Jang, Ziyao Shangguan, Kyle Tegtmeyer, Anurag Gupta, Jan Czerminski,
+  Sophie Chheang, and Arman Cohan. 2026.
+\newblock {MedTutor}: A retrieval-augmented {LLM} system for case-based medical
+  education.
+\newblock \emph{arXiv preprint arXiv:2601.06979}.
+
+\bibitem[{Jimenez et~al.(2023)Jimenez, Yang, Wettig, Yao, Pei, Press, and
+  Narasimhan}]{jimenez2023swebench}
+Carlos~E. Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir
+  Press, and Karthik Narasimhan. 2023.
+\newblock {SWE-bench}: Can language models resolve real-world {GitHub} issues?
+\newblock \emph{arXiv preprint arXiv:2310.06770}.
+
+\bibitem[{Kapur(2008)}]{kapur2008productive}
+Manu Kapur. 2008.
+\newblock Productive failure.
+\newblock \emph{Cognition and Instruction}, 26(3):379--424.
+
+\bibitem[{Katharakis et~al.(2025)Katharakis, Rossi, and
+  Mukkamala}]{katharakis2025slm}
+Konstantinos Katharakis, Sippo Rossi, and Raghava~Rao Mukkamala. 2025.
+\newblock Small language models for curriculum-based guidance.
+\newblock \emph{arXiv preprint arXiv:2510.02347}.
+
+\bibitem[{Kelly and Risko(2019)}]{kelly2019cognitive}
+Megan~O. Kelly and Evan~F. Risko. 2019.
+\newblock Cognitive offloading: Structuring the environment to improve memory.
+\newblock \emph{Annual Review of Psychology}.
+
+\bibitem[{Kilpatrick(1918)}]{kilpatrick1918}
+William~H. Kilpatrick. 1918.
+\newblock The project method.
+\newblock \emph{Teachers College Record}, 19(4):319--335.
+
+\bibitem[{Kirschner et~al.(2006)Kirschner, Sweller, and
+  Clark}]{kirschner2006minimal}
+Paul~A. Kirschner, John Sweller, and Richard~E. Clark. 2006.
+\newblock Why minimal guidance during instruction does not work.
+\newblock \emph{Educational Psychologist}, 41(2):75--86.
+
+\bibitem[{Krajcik and Shin(2014)}]{krajcik2014pbl}
+Joseph~S. Krajcik and Namsoo Shin. 2014.
+\newblock Project-based learning.
+\newblock In R.~Keith Sawyer, editor, \emph{The Cambridge Handbook of the
+  Learning Sciences}, 2nd edition, pages 275--297. Cambridge University Press.
+
+\bibitem[{Lee et~al.(2025{\natexlab{a}})Lee, Rismanchian, Dohan, and
+  Shamma}]{lee2025codesigning}
+Gloria Lee, Farnaz Rismanchian, Michael Dohan, and David~A. Shamma.
+  2025{\natexlab{a}}.
+\newblock Co-designing {LLM} tools for project-based learning with {K12}
+  educators.
+\newblock \emph{arXiv preprint arXiv:2502.09799}.
+
+\bibitem[{Lee et~al.(2025{\natexlab{b}})Lee, Liang, and
+  Yang}]{lee2025interaction}
+Mina Lee, Percy Liang, and Diyi Yang. 2025{\natexlab{b}}.
+\newblock Interaction-required suggestions for control, ownership, and
+  awareness in human-{AI} co-writing.
+\newblock \emph{arXiv preprint arXiv:2504.08726}.
+
+\bibitem[{Li et~al.(2024)Li, Wu, Tang, Shi, Yang, Li, Yao, Qian, Hui, Zhang
+  et~al.}]{li2024deveval}
+Bowen Li, Wenhan Wu, Ziwei Tang, Lin Shi, John Yang, Jinyang Li, Shunyu Yao,
+  Chen Qian, Binyuan Hui, Qicheng Zhang, and 1 others. 2024.
+\newblock {DevEval}: Prompting large language models to tackle the full
+  software development lifecycle.
+\newblock \emph{arXiv preprint arXiv:2403.08604}.
+
+\bibitem[{Liu et~al.(2023)Liu, Sonkar, Wang, Woodhead, and
+  Baraniuk}]{liu2023misconception}
+Naiming Liu, Shashank Sonkar, Zichao Wang, Simon Woodhead, and Richard~G.
+  Baraniuk. 2023.
+\newblock Novice learner and expert tutor: Evaluating math reasoning abilities
+  of large language models with misconceptions.
+\newblock \emph{arXiv preprint arXiv:2310.02439}.
+
+\bibitem[{Mysore et~al.(2025)Mysore, Jasim, Song, Mitra, Radlinski, and
+  Teevan}]{mysore2025paths}
+Sheshera Mysore, Mahmood Jasim, Haoliang Song, Bhaskar Mitra, Filip Radlinski,
+  and Jaime Teevan. 2025.
+\newblock Prototypical human-{AI} collaboration behaviors in co-writing with
+  large language models.
+\newblock \emph{arXiv preprint arXiv:2505.16023}.
+
+\bibitem[{Piech et~al.(2015)Piech, Bassen, Huang, Ganguli, Sahami, Guibas, and
+  Sohl-Dickstein}]{piech2015deep}
+Chris Piech, Jonathan Bassen, Jonathan Huang, Surya Ganguli, Mehran Sahami,
+  Leonidas~J. Guibas, and Jascha Sohl-Dickstein. 2015.
+\newblock Deep knowledge tracing.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~28.
+
+\bibitem[{Puntambekar and H\"{u}bscher(2005)}]{puntambekar2005scaffolding}
+Sadhana Puntambekar and Roland H\"{u}bscher. 2005.
+\newblock Tools for scaffolding students in a complex learning environment:
+  What have we gained and what have we missed?
+\newblock \emph{Educational Psychologist}, 40(1):1--12.
+
+\bibitem[{Qian et~al.(2023)Qian, Liu, Liu, Chen, Dang, Li, Yang, Chen, Su, Cong
+  et~al.}]{qian2023chatdev}
+Chen Qian, Wei Liu, Hongzhang Liu, Nuo Chen, Yufan Dang, Jiahao Li, Cheng Yang,
+  Weize Chen, Yusheng Su, Xin Cong, and 1 others. 2023.
+\newblock {ChatDev}: Communicative agents for software development.
+\newblock \emph{arXiv preprint arXiv:2307.07924}.
+
+\bibitem[{Shao et~al.(2024)Shao, Jiang, Kanell, Xu, Khattab, and
+  Lam}]{shao2024storm}
+Yijia Shao, Yucheng Jiang, Theodore~A. Kanell, Peter Xu, Omar Khattab, and
+  Monica~S. Lam. 2024.
+\newblock Assisting in writing wikipedia-like articles from scratch with large
+  language models.
+\newblock \emph{arXiv preprint arXiv:2402.14207}.
+
+\bibitem[{Sharma et~al.(2025)Sharma, Naik, Gawas, Patil, and
+  Korgaonkar}]{sharma2025pustakai}
+Shivam Sharma, Riya Naik, Tejas Gawas, Heramb Patil, and Kunal Korgaonkar.
+  2025.
+\newblock {PustakAI}: Curriculum-aligned and interactive textbooks using large
+  language models.
+\newblock \emph{arXiv preprint arXiv:2511.10002}.
+
+\bibitem[{Shi et~al.(2025)Shi, Peng, Guo, Gao, Ren, and Liao}]{shi2025autop2c}
+Jinhao Shi, Jialong Peng, Qingnan Guo, Ge~Gao, Jiangtao Ren, and Yilun Liao.
+  2025.
+\newblock {AutoP2C}: Paper-to-code repository generation from multimodal
+  academic papers.
+\newblock \emph{arXiv preprint arXiv:2504.20115}.
+
+\bibitem[{Sweller(1988)}]{sweller1988cognitive}
+John Sweller. 1988.
+\newblock Cognitive load during problem solving: Effects on learning.
+\newblock \emph{Cognitive Science}, 12(2):257--285.
+
+\bibitem[{Thomas(2000)}]{thomas2000}
+John~W. Thomas. 2000.
+\newblock A review of research on project-based learning.
+\newblock \emph{The Autodesk Foundation}.
+
+\bibitem[{Vygotsky(1978)}]{vygotsky1978}
+Lev~S. Vygotsky. 1978.
+\newblock \emph{Mind in Society: The Development of Higher Psychological
+  Processes}.
+\newblock Harvard University Press, Cambridge, MA.
+
+\bibitem[{Wang et~al.(2024{\natexlab{a}})Wang, Lee, Ruan, Gao, and
+  Amershi}]{wang2024lessonplanner}
+Haoxiang Wang, Jionghao Lee, Shaoguang Ruan, Jianfeng Gao, and Saleema Amershi.
+  2024{\natexlab{a}}.
+\newblock {LessonPlanner}: Assisting novice teachers to prepare pedagogy-driven
+  lesson plans with {LLMs}.
+\newblock In \emph{Proceedings of the 37th Annual ACM Symposium on User
+  Interface Software and Technology (UIST)}.
+
+\bibitem[{Wang et~al.(2023)Wang, Xu, Lan, Hu, Lan, Lee, and
+  Lim}]{wang2023planandsolve}
+Lei Wang, Wanyu Xu, Yihuai Lan, Zhiqiang Hu, Yunshi Lan, Roy Ka-Wei Lee, and
+  Ee-Peng Lim. 2023.
+\newblock Plan-and-solve prompting: Improving zero-shot chain-of-thought
+  reasoning by large language models.
+\newblock In \emph{Proceedings of the 61st Annual Meeting of the Association
+  for Computational Linguistics (ACL)}.
+
+\bibitem[{Wang et~al.(2024{\natexlab{b}})Wang, Li, Song, Xu, Tang, Zhuge, Pan,
+  Song, Li, Singh et~al.}]{wang2024openhands}
+Xingyao Wang, Boxuan Li, Yufan Song, Frank~F. Xu, Xiangru Tang, Mingchen Zhuge,
+  Jiayi Pan, Yueqi Song, Bowen Li, Jaskirat Singh, and 1 others.
+  2024{\natexlab{b}}.
+\newblock {OpenHands}: An open platform for ai software developers as
+  generalist agents.
+\newblock \emph{arXiv preprint arXiv:2407.16741}.
+
+\bibitem[{Wang et~al.(2025)Wang, Srinivasan, Suh, and Fourney}]{wang2025summit}
+Zijie~J. Wang, Aravind Srinivasan, Jina Suh, and Adam Fourney. 2025.
+\newblock Human-in-the-loop development workflow for domain {AI} assistants.
+\newblock \emph{arXiv preprint arXiv:2511.03186}.
+
+\bibitem[{Wood et~al.(1976)Wood, Bruner, and Ross}]{wood1976scaffolding}
+David Wood, Jerome~S. Bruner, and Gail Ross. 1976.
+\newblock The role of tutoring in problem solving.
+\newblock \emph{Journal of Child Psychology and Psychiatry}, 17(2):89--100.
+
+\bibitem[{Xu et~al.(2025)Xu, Xu, Chen, Chen, Zhang, and Chen}]{xu2025pregenie}
+Xiaojie Xu, Xinli Xu, Sirui Chen, Haoyu Chen, Fan Zhang, and Ying-Cong Chen.
+  2025.
+\newblock {PreGenie}: An agentic framework for high-quality visual presentation
+  generation.
+\newblock \emph{arXiv preprint arXiv:2505.21660}.
+
+\bibitem[{Yang et~al.(2024)Yang, Jimenez, Wettig, Lieret, Yao, Narasimhan, and
+  Press}]{yang2024sweagent}
+John Yang, Carlos~E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao,
+  Karthik Narasimhan, and Ofir Press. 2024.
+\newblock {SWE-agent}: Agent-computer interfaces enable automated software
+  engineering.
+\newblock \emph{arXiv preprint arXiv:2405.15793}.
+
+\bibitem[{Zhang et~al.(2024{\natexlab{a}})Zhang, Li, Li, Shi, and
+  Jin}]{zhang2024codeagent}
+Kechi Zhang, Jia Li, Ge~Li, Xianjie Shi, and Zhi Jin. 2024{\natexlab{a}}.
+\newblock {CodeAgent}: Enhancing code generation with tool-integrated agent
+  systems for real-world repo-level coding challenges.
+\newblock \emph{arXiv preprint arXiv:2401.07339}.
+
+\bibitem[{Zhang et~al.(2024{\natexlab{b}})Zhang, Ruan, Fan, and
+  Roychoudhury}]{zhang2024autocoderover}
+Yuntong Zhang, Haifeng Ruan, Zhiyu Fan, and Abhik Roychoudhury.
+  2024{\natexlab{b}}.
+\newblock {AutoCodeRover}: Autonomous program improvement.
+\newblock \emph{arXiv preprint arXiv:2404.05427}.
+
+\bibitem[{Zhang et~al.(2026)Zhang, Yao, Viswanathan, and Xia}]{zhang2026hicot}
+Zefan Zhang, Zifan Yao, Avinash Viswanathan, and Tong Xia. 2026.
+\newblock Hierarchical chain-of-thought prompting for large language models.
+\newblock \emph{arXiv preprint arXiv:2604.00130}.
+
+\bibitem[{Zhang et~al.(2024{\natexlab{c}})Zhang, Zhang-Li, Yu, Gong, Zhou, Hao,
+  Jiang, Cao, Liu, Liu, Hou, and Li}]{zhang2024simclass}
+Zheyuan Zhang, Daniel Zhang-Li, Jifan Yu, Linlu Gong, Jinchang Zhou, Zhanxin
+  Hao, Jianxiao Jiang, Jie Cao, Huiqin Liu, Zhiyuan Liu, Lei Hou, and Juanzi
+  Li. 2024{\natexlab{c}}.
+\newblock Simulating classroom education with {LLM}-empowered agents.
+\newblock \emph{arXiv preprint arXiv:2406.19226}.
+
+\bibitem[{Zheng et~al.(2026)Zheng, Guan, Kong, Zheng, and
+  Zhou}]{zheng2026deeppresenter}
+Hao Zheng, Xinyan Guan, Hao Kong, Jia Zheng, and Weixiang Zhou. 2026.
+\newblock {DeepPresenter}: Environment-grounded reflection for agentic
+  presentation generation.
+\newblock \emph{arXiv preprint arXiv:2602.22839}.
+
+\bibitem[{Zheng et~al.(2025)Zheng, Guan, Kong, Zheng, Zhou, Lin, Lu, He, Han,
+  and Sun}]{zheng2025pptagent}
+Hao Zheng, Xinyan Guan, Hao Kong, Jia Zheng, Weixiang Zhou, Hongyu Lin, Yaojie
+  Lu, Ben He, Xianpei Han, and Le~Sun. 2025.
+\newblock {PPTAgent}: Generating and evaluating presentations beyond
+  text-to-slides.
+\newblock \emph{arXiv preprint arXiv:2501.03936}.
+
+\bibitem[{Zhou et~al.(2023)Zhou, Sch\"{a}rli, Hou, Wei, Scales, Wang,
+  Schuurmans, Cui, Bousquet, Le, and Chi}]{zhou2023leasttomost}
+Denny Zhou, Nathana\"{e}l Sch\"{a}rli, Le~Hou, Jason Wei, Nathan Scales, Xuezhi
+  Wang, Dale Schuurmans, Claire Cui, Olivier Bousquet, Quoc Le, and Ed~Chi.
+  2023.
+\newblock Least-to-most prompting enables complex reasoning in large language
+  models.
+\newblock In \emph{Proceedings of the 11th International Conference on Learning
+  Representations (ICLR)}.
+
+\end{thebibliography}
