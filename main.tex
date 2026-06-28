@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+
+% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[review]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{xcolor}
+
+\newcommand{\model}{ProjectCraft\xspace}
+
+\definecolor{darkgreen}{RGB}{0,100,0}
+
+\newcommand{\nn}[1]{\textcolor{darkgreen}{TODO(Daniel): #1}}
+\title{Anything2PBL: Hierarchical Constrained Generation with \\ Learner-Aware Scaffolding for Project-Based Learning}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  \texttt{email@domain} \\}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Project-Based Learning (PBL) is an effective approach for developing practical competencies through authentic project work.
+However, creating high-quality training projects remains costly, as it requires not only engineering completeness but also learner-appropriate pedagogical design---in particular, deciding what constitutes a productive challenge versus tedious grunt work depends on the target learner rather than the project itself.
+Existing approaches either focus on code generation without pedagogical consideration, or assist the learning process without producing a complete, runnable project.
+We propose \textbf{Anything2PBL} (A2P), a hierarchical constrained generation framework that transforms arbitrary inputs into pedagogically-calibrated project repositories through a five-stage human-in-the-loop pipeline.
+Experiments on a cross-disciplinary benchmark show that A2P consistently outperforms direct-prompting and chain-of-thought baselines, and that instructor calibration at the scaffolding stage yields disproportionately large gains.
+\end{abstract}
+
+\input{data/1_intro}
+\input{data/2_related}
+\input{data/3_method}
+\input{data/4_exp}
+\input{data/5_conclusion}
+
+\appendix
+
+\input{data/9_appendix}
+
+\bibliography{custom}
+
+\end{document}
