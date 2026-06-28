@@ -1,69 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="440" viewBox="0 0 820 440" role="img" aria-labelledby="title desc">
-  <title id="title">ProjectCraft phase-gated workflow</title>
-  <desc id="desc">A five-phase workflow from learner intent and source artifacts to a runnable training repository, with learner-work preservation as a cross-cutting constraint.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520" role="img" aria-labelledby="title desc">
+  <title id="title">ProjectCraft system overview</title>
+  <desc id="desc">ProjectCraft transforms learner intent and source artifacts through five phases into a runnable practice repository while preserving meaningful learner work.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
-      <path d="M0,0 L10,4 L0,8 Z" fill="#4b5563"/>
+      <path d="M0,0 L10,4 L0,8 Z" fill="#334155"/>
     </marker>
     <style>
-      .title { font: 700 22px Arial, Helvetica, sans-serif; fill: #111827; }
-      .phase { font: 700 15px Arial, Helvetica, sans-serif; fill: #111827; }
-      .text { font: 12.5px Arial, Helvetica, sans-serif; fill: #374151; }
-      .small { font: 12px Arial, Helvetica, sans-serif; fill: #4b5563; }
-      .box { stroke-width: 1.5; rx: 11; }
-      .line { stroke: #4b5563; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .bg { fill: #f7f8fb; }
+      .panel { stroke: #1f2937; stroke-width: 2; rx: 16; }
+      .card { stroke-width: 1.7; rx: 13; }
+      .title { font: 700 24px Arial, Helvetica, sans-serif; fill: #111827; }
+      .head { font: 700 15px Arial, Helvetica, sans-serif; fill: #111827; }
+      .body { font: 12px Arial, Helvetica, sans-serif; fill: #374151; }
+      .tiny { font: 10.5px Arial, Helvetica, sans-serif; fill: #475569; }
+      .label { font: 700 11px Arial, Helvetica, sans-serif; fill: #111827; }
+      .line { stroke: #334155; stroke-width: 2.1; fill: none; marker-end: url(#arrow); }
+      .thin { stroke: #334155; stroke-width: 1.25; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .skin { fill: #ffd6b0; stroke: #334155; stroke-width: 1.2; }
+      .hair { fill: #374151; stroke: #334155; stroke-width: 1.1; }
     </style>
   </defs>
 
-  <rect width="820" height="440" fill="#ffffff"/>
-  <text x="410" y="36" text-anchor="middle" class="title">ProjectCraft transforms intent into a runnable practice repository</text>
+  <rect width="1120" height="520" class="bg"/>
+  <text x="560" y="36" text-anchor="middle" class="title">ProjectCraft: from learner intent to runnable practice repository</text>
 
-  <rect x="30" y="82" width="132" height="96" class="box" fill="#eef6ff" stroke="#3b82f6"/>
-  <text x="96" y="112" text-anchor="middle" class="phase">Clarify</text>
-  <text x="96" y="136" text-anchor="middle" class="text">learner goal</text>
-  <text x="96" y="154" text-anchor="middle" class="text">source context</text>
+  <rect x="26" y="82" width="178" height="290" class="panel" fill="#eef6ff"/>
+  <text x="115" y="112" text-anchor="middle" class="head">Input</text>
+  <g transform="translate(55 134)">
+    <circle cx="30" cy="28" r="16" class="skin"/>
+    <path d="M15 29 C17 9, 43 9, 46 29 C39 19, 23 19, 15 29Z" class="hair"/>
+    <path d="M15 70 C21 47, 43 47, 49 70Z" fill="#6ec9d8" stroke="#334155" stroke-width="1.3"/>
+    <path d="M7 55 L20 46 M55 55 L43 46" class="thin"/>
+    <circle cx="25" cy="29" r="1.7" fill="#111827"/>
+    <circle cx="36" cy="29" r="1.7" fill="#111827"/>
+    <path d="M26 38 C30 41, 35 41, 39 38" class="thin"/>
+  </g>
+  <rect x="66" y="220" width="98" height="54" rx="9" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="115" y="241" text-anchor="middle" class="label">Learner intent</text>
+  <text x="115" y="260" text-anchor="middle" class="tiny">goal + level</text>
+  <rect x="66" y="292" width="98" height="54" rx="9" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="115" y="313" text-anchor="middle" class="label">Source artifacts</text>
+  <text x="115" y="332" text-anchor="middle" class="tiny">repo / docs</text>
 
-  <rect x="186" y="82" width="132" height="96" class="box" fill="#f8fafc" stroke="#64748b"/>
-  <text x="252" y="112" text-anchor="middle" class="phase">Frame</text>
-  <text x="252" y="136" text-anchor="middle" class="text">assignment identity</text>
-  <text x="252" y="154" text-anchor="middle" class="text">goal and deliverable</text>
+  <rect x="246" y="72" width="628" height="310" class="panel" fill="#ffffff"/>
+  <text x="560" y="103" text-anchor="middle" class="head">Phase-Gated Planner</text>
 
-  <rect x="342" y="82" width="132" height="96" class="box" fill="#f0fdf4" stroke="#22c55e"/>
-  <text x="408" y="112" text-anchor="middle" class="phase">Orchestrate</text>
-  <text x="408" y="136" text-anchor="middle" class="text">milestones</text>
-  <text x="408" y="154" text-anchor="middle" class="text">roles and ownership</text>
+  <g transform="translate(275 135)">
+    <rect width="104" height="96" class="card" fill="#eef6ff" stroke="#3b82f6"/>
+    <circle cx="28" cy="32" r="12" fill="#bfdbfe" stroke="#334155" stroke-width="1.1"/>
+    <path d="M22 32 H34 M28 26 V38" class="thin"/>
+    <text x="52" y="30" text-anchor="middle" class="head">Clarify</text>
+    <text x="52" y="56" text-anchor="middle" class="body">goal</text>
+    <text x="52" y="73" text-anchor="middle" class="body">context</text>
+  </g>
 
-  <rect x="498" y="82" width="132" height="96" class="box" fill="#fff7ed" stroke="#f97316"/>
-  <text x="564" y="112" text-anchor="middle" class="phase">Materialize</text>
-  <text x="564" y="136" text-anchor="middle" class="text">files and scaffolds</text>
-  <text x="564" y="154" text-anchor="middle" class="text">checks and docs</text>
+  <g transform="translate(400 135)">
+    <rect width="104" height="96" class="card" fill="#f8fafc" stroke="#64748b"/>
+    <rect x="18" y="21" width="30" height="24" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.1"/>
+    <path d="M25 30 H42 M25 38 H37" class="thin"/>
+    <text x="52" y="30" text-anchor="middle" class="head">Frame</text>
+    <text x="52" y="56" text-anchor="middle" class="body">identity</text>
+    <text x="52" y="73" text-anchor="middle" class="body">deliverable</text>
+  </g>
 
-  <rect x="654" y="82" width="132" height="96" class="box" fill="#fdf2f8" stroke="#db2777"/>
-  <text x="720" y="112" text-anchor="middle" class="phase">Instantiate</text>
-  <text x="720" y="136" text-anchor="middle" class="text">microtasks</text>
-  <text x="720" y="154" text-anchor="middle" class="text">role guidance</text>
+  <g transform="translate(525 135)">
+    <rect width="104" height="96" class="card" fill="#f0fdf4" stroke="#22c55e"/>
+    <circle cx="24" cy="29" r="8" fill="#bbf7d0" stroke="#334155" stroke-width="1.1"/>
+    <circle cx="43" cy="42" r="8" fill="#fed7aa" stroke="#334155" stroke-width="1.1"/>
+    <path d="M32 35 L37 39" class="thin"/>
+    <text x="52" y="30" text-anchor="middle" class="head">Orchestrate</text>
+    <text x="52" y="56" text-anchor="middle" class="body">roles</text>
+    <text x="52" y="73" text-anchor="middle" class="body">milestones</text>
+  </g>
 
-  <path d="M162 130 L185 130" class="line"/>
-  <path d="M318 130 L341 130" class="line"/>
-  <path d="M474 130 L497 130" class="line"/>
-  <path d="M630 130 L653 130" class="line"/>
+  <g transform="translate(650 135)">
+    <rect width="104" height="96" class="card" fill="#fff7ed" stroke="#f97316"/>
+    <rect x="18" y="21" width="34" height="28" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.1"/>
+    <path d="M25 31 H45 M25 40 H39" class="thin"/>
+    <text x="52" y="30" text-anchor="middle" class="head">Materialize</text>
+    <text x="52" y="56" text-anchor="middle" class="body">files</text>
+    <text x="52" y="73" text-anchor="middle" class="body">checks</text>
+  </g>
 
-  <rect x="72" y="242" width="260" height="98" class="box" fill="#f9fafb" stroke="#9ca3af"/>
-  <text x="202" y="272" text-anchor="middle" class="phase">Planning state</text>
-  <text x="202" y="296" text-anchor="middle" class="text">learning intent, support strategy,</text>
-  <text x="202" y="314" text-anchor="middle" class="text">validation criteria, ownership boundary</text>
+  <g transform="translate(775 135)">
+    <rect width="104" height="96" class="card" fill="#fdf2f8" stroke="#db2777"/>
+    <rect x="17" y="22" width="34" height="28" rx="4" fill="#ffffff" stroke="#334155" stroke-width="1.1"/>
+    <circle cx="27" cy="36" r="3" fill="#db2777"/>
+    <circle cx="39" cy="36" r="3" fill="#db2777"/>
+    <text x="52" y="30" text-anchor="middle" class="head">Instantiate</text>
+    <text x="52" y="56" text-anchor="middle" class="body">microtasks</text>
+    <text x="52" y="73" text-anchor="middle" class="body">role prompts</text>
+  </g>
 
-  <rect x="488" y="242" width="260" height="98" class="box" fill="#f9fafb" stroke="#9ca3af"/>
-  <text x="618" y="272" text-anchor="middle" class="phase">Training repository</text>
-  <text x="618" y="296" text-anchor="middle" class="text">starter materials, instructions,</text>
-  <text x="618" y="314" text-anchor="middle" class="text">tests, rubrics, intentional gaps</text>
+  <path d="M379 183 L399 183" class="line"/>
+  <path d="M504 183 L524 183" class="line"/>
+  <path d="M629 183 L649 183" class="line"/>
+  <path d="M754 183 L774 183" class="line"/>
 
-  <path d="M202 179 C210 210, 222 225, 241 242" class="line"/>
-  <path d="M408 179 C390 217, 344 242, 332 270" class="line"/>
-  <path d="M564 179 C577 209, 593 225, 605 242" class="line"/>
-  <path d="M720 179 C709 209, 690 225, 672 242" class="line"/>
+  <rect x="292" y="273" width="536" height="64" rx="18" fill="#ecfdf5" stroke="#10b981" stroke-width="1.8"/>
+  <text x="560" y="298" text-anchor="middle" class="head">Cross-phase constraint</text>
+  <text x="560" y="320" text-anchor="middle" class="body">preserve meaningful learner work while making the repository runnable</text>
+  <path d="M327 232 C330 252, 356 263, 390 273" class="line"/>
+  <path d="M577 232 C577 250, 572 260, 566 273" class="line"/>
+  <path d="M827 232 C820 252, 793 264, 760 273" class="line"/>
 
-  <path d="M332 291 L487 291" class="line"/>
-  <rect x="275" y="374" width="270" height="42" rx="21" fill="#ecfdf5" stroke="#10b981" stroke-width="1.4"/>
-  <text x="410" y="400" text-anchor="middle" class="small">Cross-phase constraint: preserve meaningful learner work</text>
+  <rect x="916" y="82" width="178" height="290" class="panel" fill="#f0fdf4"/>
+  <text x="1005" y="112" text-anchor="middle" class="head">Output</text>
+  <g transform="translate(956 135)">
+    <rect x="0" y="0" width="98" height="122" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="1.6"/>
+    <rect x="12" y="18" width="74" height="25" rx="5" fill="#dbeafe" stroke="#334155" stroke-width="1.1"/>
+    <text x="49" y="35" text-anchor="middle" class="tiny">starter files</text>
+    <rect x="12" y="52" width="74" height="25" rx="5" fill="#ffedd5" stroke="#334155" stroke-width="1.1"/>
+    <text x="49" y="69" text-anchor="middle" class="tiny">scaffolds</text>
+    <rect x="12" y="86" width="74" height="25" rx="5" fill="#fee2e2" stroke="#334155" stroke-width="1.1"/>
+    <text x="49" y="103" text-anchor="middle" class="tiny">open gaps</text>
+  </g>
+  <text x="1005" y="291" text-anchor="middle" class="head">Training repo</text>
+  <text x="1005" y="314" text-anchor="middle" class="body">runnable, guided,</text>
+  <text x="1005" y="331" text-anchor="middle" class="body">intentionally incomplete</text>
+
+  <path d="M204 227 C225 226, 231 226, 246 226" class="line"/>
+  <path d="M874 227 C893 226, 901 226, 916 226" class="line"/>
+
+  <g transform="translate(348 412)">
+    <rect x="0" y="0" width="424" height="54" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="212" y="23" text-anchor="middle" class="label">Planning state carried forward</text>
+    <text x="212" y="42" text-anchor="middle" class="tiny">learning intent · support strategy · ownership boundary · validation criteria</text>
+  </g>
+  <path d="M560 337 L560 412" class="line"/>
 </svg>
